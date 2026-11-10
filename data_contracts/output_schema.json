@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CompanyScreenResult",
+  "type": "object",
+  "required": [
+    "security_id",
+    "symbol",
+    "as_of_date",
+    "run_mode",
+    "pit_status",
+    "data_quality_grade",
+    "eligibility_status",
+    "scores"
+  ],
+  "properties": {
+    "security_id": {
+      "type": "string"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "company_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "as_of_date": {
+      "type": "string"
+    },
+    "run_mode": {
+      "type": "string",
+      "enum": [
+        "current_screen",
+        "historical_pit_backtest",
+        "final_vintage_research"
+      ]
+    },
+    "pit_status": {
+      "type": "string",
+      "enum": [
+        "STRICT_PIT",
+        "NON_PIT_FINAL_VINTAGE"
+      ]
+    },
+    "data_quality_grade": {
+      "type": "string",
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "F"
+      ]
+    },
+    "eligibility_status": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "REVIEW_REQUIRED",
+        "REJECT",
+        "INSUFFICIENT_DATA"
+      ]
+    },
+    "rejection_reasons": {
+      "type": "array"
+    },
+    "review_flags": {
+      "type": "array"
+    },
+    "scores": {
+      "type": "object"
+    },
+    "key_metrics": {
+      "type": "object"
+    },
+    "valuation": {
+      "type": "object"
+    },
+    "mispricing": {
+      "type": "object"
+    },
+    "explainability": {
+      "type": "object"
+    }
+  }
+}

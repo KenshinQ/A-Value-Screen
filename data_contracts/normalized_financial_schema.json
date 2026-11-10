@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NormalizedFinancialStatement",
+  "type": "object",
+  "required": [
+    "security_id",
+    "report_period",
+    "available_date",
+    "fields"
+  ],
+  "properties": {
+    "security_id": {
+      "type": "string"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "report_period": {
+      "type": "string"
+    },
+    "announcement_datetime": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "available_date": {
+      "type": "string"
+    },
+    "statement_type": {
+      "type": "string"
+    },
+    "version_id": {
+      "type": "string"
+    },
+    "version_chain": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "is_restatement": {
+      "type": "boolean"
+    },
+    "currency": {
+      "type": "string",
+      "const": "CNY"
+    },
+    "fields": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "unit": {
+            "type": "string"
+          },
+          "source": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_field": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "imputation_flag": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

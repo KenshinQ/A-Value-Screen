@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "avalue-screen"
+version = "0.1.0"
+description = "A-Value-Screen: A-share quantitative fundamental screening engine"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Proprietary" }
+authors = [{ name = "A-Value-Screen" }]
+dependencies = [
+  "pydantic==2.14.3",
+  "PyYAML==6.0.3",
+  "pandas==3.0.6",
+  "numpy==2.5.4",
+  "click==8.5.0",
+  "python-dateutil==2.9.0.post0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==9.2.0",
+]
+
+[project.scripts]
+avalue-screen = "avalue_screen.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+avalue_screen = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"
+filterwarnings = [
+  "ignore::DeprecationWarning",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

@@ -1,0 +1,19 @@
+{
+  "code_version": "0.1.0",
+  "rule_version": "0.1.0",
+  "config_source": "/workspace/A-Value-Screen/configs/default.yaml",
+  "config_hash": "91286885bd4997ae00fd88e707064ea439914ac15e14d7bf404255d80db3d80c",
+  "as_of_date": "2026-11-10",
+  "run_mode": "current_screen",
+  "pit_status": "STRICT_PIT",
+  "run_time": "2026-11-10T10:23:19.592765+08:00",
+  "timezone": "Asia/Shanghai",
+  "input_path": "tests/fixtures/universe/universe.json",
+  "input_file_hashes": {
+    "universe.json": "1ef91522cfd0a4506c61255262f3d1797554e251f1a174e6a33dc37621172f30"
+  },
+  "notes": {
+    "company_count": 9,
+    "pit_reasons": []
+  }
+}

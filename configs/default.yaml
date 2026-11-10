@@ -1,0 +1,413 @@
+# A-Value-Screen v0.1 default research parameters.
+# These are initial study thresholds, not universally valid across industries.
+# Interval convention: left-closed, right-open [lower, upper);
+# the highest band includes its upper bound; the lowest band includes all remaining lower values.
+
+schema_version: "0.1.0"
+rule_version: "0.1.0"
+
+run:
+  default_mode: current_screen
+  default_financial_data_mode: strict_pit
+  market_close_time: "15:00"
+  timezone: "Asia/Shanghai"
+  # If announcement has a date but no time, conservatively use the next trading day.
+  date_only_available_next_session: true
+
+universe:
+  name: cn_a_share_all
+  include_bse: true
+  # Project default is Shanghai/Shenzhen main board only (paper-book constraint).
+  # SPEC original default was false (all ordinary A-shares including ChiNext / STAR / optional BSE).
+  main_board_only: true
+  exclude_st: true
+  exclude_delisting_risk: true
+  exclude_financial_sectors: true
+  exclude_suspended_on_as_of_date: true
+  exclude_non_ordinary: true
+  min_daily_turnover_cny: 10000000
+  liquidity_lookback_days: 20
+  # Liquidity is a candidate-list filter, not a quality score and not a hard REJECT.
+  liquidity_blocks_candidate_list: true
+  ordinary_a_share_prefixes:
+    SH: ["600", "601", "603", "605", "688", "689"]
+    SZ: ["000", "001", "002", "003", "300", "301"]
+    BJ: ["4", "8", "9", "43", "82", "83", "87", "88"]
+  main_board_prefixes:
+    SH: ["600", "601", "603", "605"]
+    SZ: ["000", "001", "002"]
+    BJ: []
+  chi_next_prefixes: ["300", "301"]
+  star_prefixes: ["688", "689"]
+  bse_exchanges: ["BJ", "BSE", "NEEQ"]
+  non_ordinary_prefixes:
+    SH: ["900"]   # B-shares
+    SZ: ["200"]   # B-shares
+    BJ: []
+  financial_sector_codes:
+    - bank
+    - insurance
+    - securities
+    - broker
+    - financial
+    - diversified_financial
+    - 银行
+    - 保险
+    - 证券
+    - 多元金融
+    - 金融
+  financial_industry_keywords:
+    - 银行
+    - 保险
+    - 证券
+    - 券商
+    - 信托
+    - 期货
+    - 财务公司
+    - bank
+    - insurance
+    - securities
+    - broker
+    - financial
+
+screening:
+  min_listing_years_for_full_grade: 5
+  min_listing_years_for_observation: 3
+  financial_history_years: 5
+  observation_history_years: 3
+  ttm_quarters: 4
+  days_per_year: 365.25
+  listing_year_basis: 365.25
+  # Official candidate_list is the 'quality + valuation first screen'.
+  # Conservative interpretation: C is an observation list (SPEC 6.7), so only A/B PASS names are official candidates.
+  candidate_min_grades: ["A", "B"]
+
+quality_gates:
+  min_5y_positive_roic_years: 4
+  min_5y_adjusted_net_income_sum: 0.0
+  min_5y_fcf_sum: 0.0
+  max_net_debt_to_ebitda_for_A: 2.0
+  hard_net_debt_to_ebitda_review: 4.0
+  min_interest_coverage_review: 1.5
+  min_interest_coverage_preferred: 4.0
+  min_cash_conversion_preferred: 0.8
+  min_cash_conversion_strong: 1.0
+  min_cash_conversion_review: 0.5
+  goodwill_to_equity_review: 0.30
+  receivable_inventory_growth_gap: 0.20
+  dilution_3y_review: 0.20
+  roic_3y_decline_review: 0.05
+  # Near-zero interest expense: treat as NA_NO_INTEREST, not infinite coverage.
+  interest_expense_near_zero: 1.0
+  # Denominator too small to form a conversion ratio.
+  conversion_denominator_min_abs: 1.0
+  persistent_negative_equity_years: 2
+
+valuation:
+  forecast_years: 5
+  risk_free_rate_source: cn_gov_10y_yield_pit
+  risk_free_rate_fallback: 0.025
+  equity_risk_premium: 0.055
+  beta_fallback: 1.0
+  beta_floor: 0.5
+  beta_cap: 1.8
+  beta_lookback_years: 3
+  wacc_floor: 0.08
+  wacc_cap: 0.14
+  terminal_growth_default: 0.02
+  terminal_growth_cap: 0.025
+  terminal_spread_min: 0.03
+  sector_cost_of_debt_fallback: 0.04
+  scenario_probabilities:
+    bear: 0.25
+    base: 0.50
+    bull: 0.25
+  conservative_value_weights:
+    bear: 0.60
+    base: 0.40
+  revenue_cagr_3y_weight: 0.60
+  revenue_cagr_5y_weight: 0.40
+  base_revenue_growth_floor: -0.02
+  base_revenue_growth_cap: 0.10
+  bear_revenue_growth_delta: -0.05
+  bull_revenue_growth_delta: 0.03
+  bear_revenue_growth_floor: -0.07
+  bull_revenue_growth_cap: 0.13
+  ebit_margin_5y_weight: 0.50
+  ebit_margin_2y_weight: 0.50
+  bear_ebit_margin_delta: -0.02
+  bull_ebit_margin_delta: 0.015
+  incremental_roic_cap: 0.40
+  terminal_value_dominant_threshold: 0.75
+  reverse_dcf_g_min: -0.10
+  reverse_dcf_g_max: 0.20
+  reverse_dcf_tolerance: 1.0e-8
+  reverse_dcf_max_iter: 200
+  default_reasonable_ev_ebit: 12.0
+  # If no peer or own-history multiple is available, mark the EV/EBIT sub-score missing
+  # rather than inventing a peer set. A config default may be enabled explicitly.
+  allow_default_reasonable_ev_ebit: false
+  tax_rate_clip_min: 0.0
+  tax_rate_clip_max: 0.35
+  tax_rate_min_valid_years: 2
+  tax_rate_fallback: 0.25
+
+mispricing:
+  price_drawdown_trigger_12m: -0.20
+  price_drawdown_strong_12m: -0.30
+  price_drawdown_mild_12m: -0.10
+  max_fundamental_decline_for_strong_divergence: 0.10
+  moderate_fundamental_decline: 0.20
+  market_cap_drawdown_3y_trigger: 0.30
+  confirmed_evidence_grades: ["A", "B"]
+  media_only_cannot_support_key_claim: true
+
+data_quality:
+  relative_tolerance: 0.005
+  absolute_tolerance_cny: 10000.0
+  coverage_core_fields:
+    - revenue
+    - net_income
+    - net_income_parent
+    - total_assets
+    - total_liabilities
+    - total_equity
+    - cash_flow_operating
+    - cash_paid_for_capex_ppe
+  yoy_shock_threshold: 1.0
+  share_change_flag_threshold: 0.10
+  margin_reasonable_min: -0.5
+  margin_reasonable_max: 0.9
+  roic_reasonable_min: -1.0
+  roic_reasonable_max: 1.5
+  dimension_incomplete_missing_ratio: 0.20
+
+normalization:
+  units:
+    yuan: 1.0
+    thousand_yuan: 1000.0
+    ten_thousand_yuan: 10000.0
+    million_yuan: 1000000.0
+    share: 1.0
+    percent: 0.01
+    day: 1.0
+    ratio: 1.0
+  default_currency: CNY
+  default_amount_unit: yuan
+  winsorize_lower_percentile: 0.05
+  winsorize_upper_percentile: 0.95
+  deduct_trading_financial_assets_from_cash: false
+  lease_liabilities_in_debt: true
+
+qualitative:
+  # Structured-state thresholds for non-numeric scoring items.
+  margin_slope_stable: -0.005
+  margin_slope_mild_decline: -0.015
+  margin_volatility_stable: 0.04
+  resilience_consecutive_decline_years: 2
+  roic_stability_std_max: 0.05
+  roic_stable_slope_min: -0.01
+  wc_turnover_stability_max_change: 15.0
+  growth_cagr_stable_floor: 0.0
+
+scoring:
+  weights:
+    commercial_quality: 25
+    financial_health: 20
+    earnings_quality: 15
+    valuation_attractiveness: 25
+    mispricing_evidence: 15
+  grade_bands:
+    # highest includes upper; others [lower, upper)
+    A: {min: 85, max: 100, include_max: true}
+    B: {min: 75, max: 85, include_max: false}
+    C: {min: 60, max: 75, include_max: false}
+    D: {min: 0, max: 60, include_max: false}
+  grade_A_requirements:
+    min_commercial_quality: 15
+    min_financial_health: 12
+    min_mispricing_evidence: 9
+    min_mos: 0.30
+    max_net_debt_to_ebitda: 2.0
+  grade_B_requirements:
+    min_commercial_quality: 15
+    min_financial_health: 12
+  commercial_quality:
+    roic_median:
+      points: 8
+      bands:
+        - {min: 0.15, max: null, score: 8}
+        - {min: 0.12, max: 0.15, score: 6}
+        - {min: 0.10, max: 0.12, score: 4}
+        - {min: 0.08, max: 0.10, score: 2}
+        - {min: null, max: 0.08, score: 0}
+    roic_persistence:
+      points: 5
+      # number of years with valid positive ROIC in the 5-year window
+      exact:
+        5: 5
+        4: 4
+        3: 2
+      below: 0
+      min_years_for_below: 3
+    margin_quality:
+      points: 4
+      stable_or_improving: 4
+      slight_decline: 2
+      sustained_decline: 0
+    resilience:
+      points: 4
+      overall_growth: 4
+      mixed: 2
+      sustained_decline: 0
+    reinvestment_efficiency:
+      points: 4
+      fcf_positive_roic_stable: 4
+      cyclical_cumulative_positive: 2
+      cash_burn_returns_down: 0
+  financial_health:
+    net_debt_to_ebitda:
+      points: 5
+      net_cash_or_le1: 5
+      bands:
+        - {min: null, max: 1.0, score: 5, net_cash: true}
+        - {min: 1.0, max: 2.0, score: 4}
+        - {min: 2.0, max: 3.0, score: 2}
+        - {min: 3.0, max: 4.0, score: 1}
+        - {min: 4.0, max: null, score: 0, review: true}
+      ebitda_nonpositive_and_net_debt_positive: 0
+    interest_coverage:
+      points: 4
+      bands:
+        - {min: 8.0, max: null, score: 4}
+        - {min: 4.0, max: 8.0, score: 3}
+        - {min: 2.0, max: 4.0, score: 2}
+        - {min: 1.5, max: 2.0, score: 1}
+        - {min: null, max: 1.5, score: 0, review: true}
+    cash_short_debt_cover:
+      points: 3
+      bands:
+        - {min: 1.5, max: null, score: 3}
+        - {min: 1.0, max: 1.5, score: 2}
+        - {min: 0.5, max: 1.0, score: 1}
+        - {min: null, max: 0.5, score: 0}
+    working_capital_quality:
+      points: 4
+      stable: 4
+      slight_deterioration: 2
+      sustained_deterioration: 0
+    audit_governance:
+      points: 4
+      clean: 4
+      watch: 2
+      major_unresolved: 0
+  earnings_quality:
+    cash_conversion:
+      points: 5
+      bands:
+        - {min: 1.0, max: null, score: 5}
+        - {min: 0.8, max: 1.0, score: 4}
+        - {min: 0.5, max: 0.8, score: 2}
+        - {min: null, max: 0.5, score: 0, review: true}
+    fcf_conversion:
+      points: 4
+      bands:
+        - {min: 0.8, max: null, score: 4}
+        - {min: 0.5, max: 0.8, score: 3}
+        - {min: 0.2, max: 0.5, score: 1}
+        - {min: null, max: 0.2, score: 0}
+    nonrecurring_reliance:
+      points: 3
+      bands:
+        - {min: null, max: 0.10, score: 3}
+        - {min: 0.10, max: 0.20, score: 2}
+        - {min: 0.20, max: 0.35, score: 1}
+        - {min: 0.35, max: null, score: 0}
+    eps_share_change:
+      points: 3
+      eps_up_shares_stable: 3
+      moderate_dilution_eps_up: 2
+      significant_dilution_eps_stagnant: 0
+      significant_dilution_threshold: 0.20
+  valuation_attractiveness:
+    margin_of_safety:
+      points: 10
+      bands:
+        - {min: 0.50, max: null, score: 10}
+        - {min: 0.40, max: 0.50, score: 9}
+        - {min: 0.30, max: 0.40, score: 7}
+        - {min: 0.20, max: 0.30, score: 4}
+        - {min: 0.10, max: 0.20, score: 2}
+        - {min: null, max: 0.10, score: 0}
+    fcf_yield:
+      points: 5
+      bands:
+        - {min: 0.08, max: null, score: 5}
+        - {min: 0.06, max: 0.08, score: 4}
+        - {min: 0.04, max: 0.06, score: 3}
+        - {min: 0.02, max: 0.04, score: 1}
+        - {min: null, max: 0.02, score: 0}
+    ev_ebit_discount:
+      points: 4
+      bands:
+        - {min: 0.30, max: null, score: 4}
+        - {min: 0.20, max: 0.30, score: 3}
+        - {min: 0.10, max: 0.20, score: 2}
+        - {min: 0.00, max: 0.10, score: 1}
+        - {min: null, max: 0.00, score: 0}
+    reverse_dcf:
+      points: 6
+      bands:
+        - {min: 0.05, max: null, score: 6}
+        - {min: 0.03, max: 0.05, score: 5}
+        - {min: 0.01, max: 0.03, score: 3}
+        - {min: 0.00, max: 0.01, score: 1}
+        - {min: null, max: 0.00, score: 0}
+  mispricing_evidence:
+    price_fundamental_divergence:
+      points: 4
+      strong: 4
+      moderate: 2
+      mild: 1
+      none: 0
+    shock_reversibility:
+      points: 4
+      confirmed_temporary: 4
+      plausible_insufficient: 2
+      structural: 0
+    implied_vs_evidence:
+      points: 4
+      strong: 4
+      partial: 2
+      none: 0
+    impairment_screen:
+      points: 3
+      no_impairment: 3
+      uncertain: 1
+      confirmed_impairment: 0
+
+formula_versions:
+  EBIT_adjusted: ebit_adjusted_v1
+  NOPAT: nopat_v1
+  invested_capital: invested_capital_v1
+  ROIC: roic_v1
+  ROE: roe_v1
+  EBITDA: ebitda_v1
+  net_debt: net_debt_v1
+  interest_coverage: interest_coverage_v1
+  FCF: fcf_v1
+  cash_conversion_5y: cash_conversion_5y_v1
+  fcf_conversion_5y: fcf_conversion_5y_v1
+  trade_receivables: trade_receivables_v1
+  receivable_days: receivable_days_v1
+  inventory_days: inventory_days_v1
+  operating_nwc: operating_nwc_v1
+  TTM: ttm_v1
+  quarterly_conversion: quarterly_conversion_v1
+  CAGR: cagr_v1
+  FCFF: fcff_v1
+  WACC: wacc_v1
+  DCF: dcf_three_scenario_v1
+  reverse_DCF: reverse_dcf_univariate_v1
+  MOS: mos_v1
+  EV: enterprise_value_v1

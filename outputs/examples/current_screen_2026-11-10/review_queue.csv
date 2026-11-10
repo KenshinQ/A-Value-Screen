@@ -1,0 +1,11 @@
+security_id,symbol,company_name,rule_id,reason,evidence_gap
+CHEAP_TRAP,000001.SZ,低PE陷阱合成公司,R-003,Five-year cash conversion (CFO / net income) is below 0.5,['D_reverse_dcf']
+CHEAP_TRAP,000001.SZ,低PE陷阱合成公司,R-006,Receivables or inventory grew more than 20 percentage points faster than revenue in two consecutive years,['D_reverse_dcf']
+CHEAP_TRAP,000001.SZ,低PE陷阱合成公司,R-012,Current TTM adjusted net income or FCF is negative (temporary shock vs lasting damage must be reviewed),['D_reverse_dcf']
+DILUTION_TRAP,600003.SH,股权稀释陷阱合成公司,R-010,Cumulative share-count dilution over 3 years exceeds 20% without an accompanying improvement in per-share earnings or cash flow,[]
+NEGATIVE_FCF_GROWTH,600006.SH,成长性资本开支短期负FCF合成公司,R-012,Current TTM adjusted net income or FCF is negative (temporary shock vs lasting damage must be reviewed),['D_reverse_dcf']
+CYCLICAL_TROUGH,000002.SZ,周期底部合成公司,R-012,Current TTM adjusted net income or FCF is negative (temporary shock vs lasting damage must be reviewed),[]
+STRUCTURAL_DECLINE,000003.SZ,结构恶化合成公司,R-004,Net debt / EBITDA is above 4.0,[]
+STRUCTURAL_DECLINE,000003.SZ,结构恶化合成公司,R-005,TTM interest coverage is below 1.5,[]
+STRUCTURAL_DECLINE,000003.SZ,结构恶化合成公司,R-012,Current TTM adjusted net income or FCF is negative (temporary shock vs lasting damage must be reviewed),[]
+STRUCTURAL_DECLINE,000003.SZ,结构恶化合成公司,R-IMP,Permanent-impairment checklist has a material YES,[]

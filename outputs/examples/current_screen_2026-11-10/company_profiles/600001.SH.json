@@ -1,0 +1,1040 @@
+{
+  "security_id": "GOOD_CHEAP",
+  "symbol": "600001.SH",
+  "company_name": "优质低估合成公司",
+  "exchange": "SH",
+  "as_of_date": "2026-11-10",
+  "run_mode": "current_screen",
+  "pit_status": "STRICT_PIT",
+  "data_quality_grade": "A",
+  "eligibility_status": "PASS",
+  "rejection_reasons": [],
+  "review_flags": [],
+  "insufficient_reasons": [],
+  "scores": {
+    "commercial_quality": 25,
+    "financial_health": 20,
+    "earnings_quality": 15,
+    "valuation_attractiveness": 25,
+    "mispricing_evidence": 15,
+    "total": 100,
+    "grade": "A",
+    "dimensions": {
+      "commercial_quality": {
+        "dimension": "commercial_quality",
+        "score": 25,
+        "max_score": 25,
+        "missing_points": 0,
+        "incomplete": false,
+        "items": [
+          {
+            "item_id": "A_roic_median",
+            "score": 8,
+            "max_score": 8,
+            "missing": false,
+            "review": false,
+            "rationale": "5-year ROIC median is 20.49%",
+            "source_metrics": {
+              "y5_ROIC_median": 0.20487804878048782,
+              "band": {
+                "min": 0.15,
+                "max": null,
+                "score": 8
+              }
+            },
+            "rule_version": "0.1.0",
+            "state": null
+          },
+          {
+            "item_id": "A_roic_persistence",
+            "score": 5,
+            "max_score": 5,
+            "missing": false,
+            "review": false,
+            "rationale": "5 of 5 years have valid positive ROIC",
+            "source_metrics": {
+              "positive_years": 5,
+              "valid_years": 5
+            },
+            "rule_version": "0.1.0",
+            "state": null
+          },
+          {
+            "item_id": "A_margin_quality",
+            "score": 4,
+            "max_score": 4,
+            "missing": false,
+            "review": false,
+            "rationale": "Margin quality state is stable_or_improving (EBIT-margin slope=0.0)",
+            "source_metrics": {
+              "gm_slope": 0.0,
+              "om_slope": 0.0,
+              "gm_std": 0.0,
+              "om_std": 0.0
+            },
+            "rule_version": "0.1.0",
+            "state": "stable_or_improving"
+          },
+          {
+            "item_id": "A_resilience",
+            "score": 4,
+            "max_score": 4,
+            "missing": false,
+            "review": false,
+            "rationale": "Resilience state is overall_growth",
+            "source_metrics": {
+              "revenue_cagr_5y": 0.050000000000000044,
+              "adj_np_cagr_5y": 0.05180859191209275
+            },
+            "rule_version": "0.1.0",
+            "state": "overall_growth"
+          },
+          {
+            "item_id": "A_reinvestment",
+            "score": 4,
+            "max_score": 4,
+            "missing": false,
+            "review": false,
+            "rationale": "Reinvestment state is fcf_positive_roic_stable (5y FCF sum=675780800.0000002)",
+            "source_metrics": {
+              "y5_FCF_sum": 675780800.0000002,
+              "roic_std": 2.4037033579794548e-17,
+              "roic_slope": 5.551115123125783e-18
+            },
+            "rule_version": "0.1.0",
+            "state": "fcf_positive_roic_stable"
+          }
+        ],
+        "rule_version": "0.1.0"
+      },
+      "financial_health": {
+        "dimension": "financial_health",
+        "score": 20,
+        "max_score": 20,
+        "missing_points": 0,
+        "incomplete": false,
+        "items": [
+          {
+            "item_id": "B_leverage",
+            "score": 5,
+            "max_score": 5,
+            "missing": false,
+            "review": false,
+            "rationale": "Company is in a net-cash position",
+            "source_metrics": {
+              "net_debt": -60775312.5
+            },
+            "rule_version": "0.1.0",
+            "state": "net_cash"
+          },
+          {
+            "item_id": "B_interest_coverage",
+            "score": 4,
+            "max_score": 4,
+            "missing": false,
+            "review": false,
+            "rationale": "Interest coverage is 32.41x",
+            "source_metrics": {
+              "interest_coverage": 32.413500000000006
+            },
+            "rule_version": "0.1.0",
+            "state": null
+          },
+          {
+            "item_id": "B_cash_cover",
+            "score": 3,
+            "max_score": 3,
+            "missing": false,
+            "review": false,
+            "rationale": "Cash / short-term interest-bearing debt is 5.27x",
+            "source_metrics": {
+              "cash_short_debt_cover": 5.2693828125
+            },
+            "rule_version": "0.1.0",
+            "state": null
+          },
+          {
+            "item_id": "B_wc_quality",
+            "score": 4,
+            "max_score": 4,
+            "missing": false,
+            "review": false,
+            "rationale": "Working-capital quality state is stable",
+            "source_metrics": {
+              "recv_gaps": [
+                {
+                  "year": 2021,
+                  "stock_growth": 0.050000000000000044,
+                  "revenue_growth": 0.050000000000000044,
+                  "gap": 0.0,
+                  "exceeds": false
+                },
+                {
+                  "year": 2022,
+                  "stock_growth": 0.050000000000000044,
+                  "revenue_growth": 0.050000000000000044,
+                  "gap": 0.0,
+                  "exceeds": false
+                },
+                {
+                  "year": 2023,
+                  "stock_growth": 0.050000000000000044,
+                  "revenue_growth": 0.050000000000000044,
+                  "gap": 0.0,
+                  "exceeds": false
+                },
+                {
+                  "year": 2024,
+                  "stock_growth": 0.050000000000000266,
+                  "revenue_growth": 0.050000000000000266,
+                  "gap": 0.0,
+                  "exceeds": false
+                },
+                {
+                  "year": 2025,
+                  "stock_growth": 0.050000000000000044,
+                  "revenue_growth": 0.050000000000000044,
+                  "gap": 0.0,
+                  "exceeds": false
+                }
+              ],
+              "inv_gaps": [
+                {
+                  "year": 2021,
+                  "stock_growth": 0.050000000000000266,
+                  "revenue_growth": 0.050000000000000044,
+                  "gap": 2.220446049250313e-16,
+                  "exceeds": false
+                },
+                {
+                  "year": 2022,
+                  "stock_growth": 0.050000000000000044,
+                  "revenue_growth": 0.050000000000000044,
+                  "gap": 0.0,
+                  "exceeds": false
+                },
+                {
+                  "year": 2023,
+                  "stock_growth": 0.050000000000000044,
+                  "revenue_growth": 0.050000000000000044,
+                  "gap": 0.0,
+                  "exceeds": false
+                },
+                {
+                  "year": 2024,
+                  "stock_growth": 0.050000000000000044,
+                  "revenue_growth": 0.050000000000000266,
+                  "gap": -2.220446049250313e-16,
+                  "exceeds": false
+                },
+                {
+                  "year": 2025,
+                  "stock_growth": 0.050000000000000044,
+                  "revenue_growth": 0.050000000000000044,
+                  "gap": 0.0,
+                  "exceeds": false
+                }
+              ]
+            },
+            "rule_version": "0.1.0",
+            "state": "stable"
+          },
+          {
+            "item_id": "B_audit",
+            "score": 4,
+            "max_score": 4,
+            "missing": false,
+            "review": false,
+            "rationale": "No material audit or governance exception is recorded",
+            "source_metrics": {
+              "audit_count": 5
+            },
+            "rule_version": "0.1.0",
+            "state": "clean"
+          }
+        ],
+        "rule_version": "0.1.0"
+      },
+      "earnings_quality": {
+        "dimension": "earnings_quality",
+        "score": 15,
+        "max_score": 15,
+        "missing_points": 0,
+        "incomplete": false,
+        "items": [
+          {
+            "item_id": "C_cash_conversion",
+            "score": 5,
+            "max_score": 5,
+            "missing": false,
+            "review": false,
+            "rationale": "5-year CFO / net income is 1.12",
+            "source_metrics": {
+              "cash_conversion_5y": 1.12
+            },
+            "rule_version": "0.1.0",
+            "state": null
+          },
+          {
+            "item_id": "C_fcf_conversion",
+            "score": 4,
+            "max_score": 4,
+            "missing": false,
+            "review": false,
+            "rationale": "5-year FCF / adjusted parent NI is 0.84",
+            "source_metrics": {
+              "fcf_conversion_5y": 0.8439667595908839
+            },
+            "rule_version": "0.1.0",
+            "state": null
+          },
+          {
+            "item_id": "C_nonrecurring",
+            "score": 3,
+            "max_score": 3,
+            "missing": false,
+            "review": false,
+            "rationale": "5-year non-recurring / parent NI is 0.00%",
+            "source_metrics": {
+              "nonrecurring_reliance_5y": 0.0
+            },
+            "rule_version": "0.1.0",
+            "state": null
+          },
+          {
+            "item_id": "C_eps_shares",
+            "score": 3,
+            "max_score": 3,
+            "missing": false,
+            "review": false,
+            "rationale": "Share/EPS state is eps_up_shares_stable (3y dilution=0.00%)",
+            "source_metrics": {
+              "dilution_3y": 0.0,
+              "adj_np_cagr_3y": 0.05171724095860375
+            },
+            "rule_version": "0.1.0",
+            "state": "eps_up_shares_stable"
+          }
+        ],
+        "rule_version": "0.1.0"
+      },
+      "valuation_attractiveness": {
+        "dimension": "valuation_attractiveness",
+        "score": 25,
+        "max_score": 25,
+        "missing_points": 0,
+        "incomplete": false,
+        "items": [
+          {
+            "item_id": "D_mos",
+            "score": 10,
+            "max_score": 10,
+            "missing": false,
+            "review": false,
+            "rationale": "Margin of safety versus conservative value is 75.80%",
+            "source_metrics": {
+              "margin_of_safety": 0.7579565564057611,
+              "conservative_value_per_share": 2.892042806883373,
+              "current_price": 0.7
+            },
+            "rule_version": "0.1.0",
+            "state": null
+          },
+          {
+            "item_id": "D_fcf_yield",
+            "score": 5,
+            "max_score": 5,
+            "missing": false,
+            "review": false,
+            "rationale": "Normalized FCF yield is 19.26%",
+            "source_metrics": {
+              "fcf_yield": 0.19260000000000005
+            },
+            "rule_version": "0.1.0",
+            "state": null
+          },
+          {
+            "item_id": "D_ev_ebit",
+            "score": 4,
+            "max_score": 4,
+            "missing": false,
+            "review": false,
+            "rationale": "EV/EBIT discount versus the reasonable multiple is 75.84%",
+            "source_metrics": {
+              "ev_ebit_discount": 0.7584184854497354,
+              "ev_ebit": 2.8989781746031746
+            },
+            "rule_version": "0.1.0",
+            "state": null
+          },
+          {
+            "item_id": "D_reverse_dcf",
+            "score": 6,
+            "max_score": 6,
+            "missing": false,
+            "review": false,
+            "rationale": "Base FCFF growth minus implied growth is 15.00% (more positive = more pessimistic market path)",
+            "source_metrics": {
+              "reverse_dcf_gap": 0.15000000000000005,
+              "g_implied": null,
+              "base_fcf_growth": 0.050000000000000044,
+              "status": "BELOW_SEARCH_RANGE"
+            },
+            "rule_version": "0.1.0",
+            "state": null
+          }
+        ],
+        "rule_version": "0.1.0"
+      },
+      "mispricing_evidence": {
+        "dimension": "mispricing_evidence",
+        "score": 15,
+        "max_score": 15,
+        "missing_points": 0,
+        "incomplete": false,
+        "items": [
+          {
+            "item_id": "E_divergence",
+            "score": 4,
+            "max_score": 4,
+            "missing": false,
+            "review": false,
+            "rationale": "Price/fundamental divergence state is strong (12m return=-44.45%, fundamental decline=-0.00%)",
+            "source_metrics": {
+              "price_12m_total_return": -0.44448954739192204,
+              "fundamental_decline": -2.7755575615628914e-17
+            },
+            "rule_version": "0.1.0",
+            "state": "strong"
+          },
+          {
+            "item_id": "E_reversibility",
+            "score": 4,
+            "max_score": 4,
+            "missing": false,
+            "review": false,
+            "rationale": "Shock reversibility state is confirmed_temporary",
+            "source_metrics": {
+              "evidence_ids": [
+                "EV-GC-001"
+              ]
+            },
+            "rule_version": "0.1.0",
+            "state": "confirmed_temporary"
+          },
+          {
+            "item_id": "E_implied",
+            "score": 4,
+            "max_score": 4,
+            "missing": false,
+            "review": false,
+            "rationale": "Implied-vs-evidence state is strong",
+            "source_metrics": {
+              "reverse_dcf_gap": 0.15000000000000005
+            },
+            "rule_version": "0.1.0",
+            "state": "strong"
+          },
+          {
+            "item_id": "E_impairment",
+            "score": 3,
+            "max_score": 3,
+            "missing": false,
+            "review": false,
+            "rationale": "Permanent-impairment screen state is no_impairment",
+            "source_metrics": {
+              "impairment_answers": {
+                "IMP-01": "NO",
+                "IMP-02": "NO",
+                "IMP-03": "NO",
+                "IMP-04": "NO",
+                "IMP-05": "NO",
+                "IMP-06": "NO",
+                "IMP-07": "NO",
+                "IMP-08": "NO"
+              }
+            },
+            "rule_version": "0.1.0",
+            "state": "no_impairment"
+          }
+        ],
+        "rule_version": "0.1.0"
+      }
+    },
+    "incomplete": false,
+    "listing_status": "FULL"
+  },
+  "key_metrics": {
+    "ttm_period": "2026-09-30",
+    "ROIC_ttm": {
+      "value": 0.20592000000000002,
+      "status": "OK",
+      "formula_version": "roic_v1",
+      "inputs": {
+        "NOPAT_TTM": 187722785.25000006,
+        "average_invested_capital": 911629687.5000002
+      },
+      "flags": []
+    },
+    "ROIC_5y_median": 0.20487804878048782,
+    "ROE_ttm": {
+      "value": 0.1918914341246703,
+      "status": "OK",
+      "formula_version": "roe_v1",
+      "inputs": {
+        "net_income_parent_TTM": 181931285.25000006,
+        "average_equity_parent": 948094875.0000002
+      },
+      "flags": []
+    },
+    "gross_margin_ttm": {
+      "value": 0.4,
+      "status": "OK",
+      "formula_version": null,
+      "inputs": {
+        "numerator": 500594094.0000001,
+        "revenue": 1251485235.0000002
+      },
+      "flags": []
+    },
+    "operating_margin_ttm": {
+      "value": 0.2,
+      "status": "OK",
+      "formula_version": null,
+      "inputs": {
+        "numerator": 250297047.00000006,
+        "revenue": 1251485235.0000002
+      },
+      "flags": []
+    },
+    "net_debt_to_ebitda": {
+      "value": -0.20234395234395228,
+      "status": "NET_CASH",
+      "formula_version": "net_debt_v1",
+      "inputs": {
+        "net_debt": -60775312.5,
+        "EBITDA": 300356456.4000001
+      },
+      "flags": [
+        "NET_CASH"
+      ]
+    },
+    "interest_coverage": {
+      "value": 32.413500000000006,
+      "status": "OK",
+      "formula_version": "interest_coverage_v1",
+      "inputs": {
+        "EBIT_adjusted": 250297047.00000006,
+        "interest_expense_gross": 7722000.0
+      },
+      "flags": []
+    },
+    "FCF_ttm": {
+      "value": 153703630.0800001,
+      "status": "OK",
+      "formula_version": "fcf_v1",
+      "inputs": {
+        "cash_flow_operating": 203763039.4800001,
+        "capex": 50059409.400000006
+      },
+      "flags": []
+    },
+    "cash_conversion_5y": {
+      "value": 1.12,
+      "status": "OK",
+      "formula_version": "cash_conversion_5y_v1",
+      "inputs": {
+        "numerator_sum": 896806050.0000002,
+        "denominator_sum": 800719687.5000001
+      },
+      "flags": []
+    },
+    "cash_conversion_5y_value": 1.12,
+    "fcf_conversion_5y_value": 0.8439667595908839,
+    "revenue_cagr_5y": 0.050000000000000044,
+    "dilution_3y": {
+      "value": 0.0,
+      "status": "OK",
+      "formula_version": null,
+      "inputs": {
+        "shares_then": 1000000000.0,
+        "shares_now": 1000000000.0
+      },
+      "flags": []
+    },
+    "price_12m_total_return": {
+      "value": -0.44448954739192204,
+      "status": "OK",
+      "formula_version": null,
+      "inputs": {
+        "start_date": "2025-11-10",
+        "end_date": "2026-11-10"
+      },
+      "flags": []
+    },
+    "market_cap": {
+      "value": 700000000.0,
+      "status": "OK",
+      "formula_version": null,
+      "inputs": {
+        "market_cap_provided": 700000000.0
+      },
+      "flags": []
+    },
+    "normalized_method": "5y_complete_year_median_with_ttm_check",
+    "annual_years": [
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "series": {
+      "ROIC": [
+        null,
+        0.20487804878048782,
+        0.2048780487804878,
+        0.2048780487804878,
+        0.20487804878048785,
+        0.20487804878048782
+      ],
+      "ROE": [
+        null,
+        0.18961069418386492,
+        0.1899624765478424,
+        0.1902975073706781,
+        0.1906165843448074,
+        0.1909204671773114
+      ],
+      "gross_margin": [
+        0.4000000000000001,
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4
+      ],
+      "operating_margin": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "revenue": [
+        952380952.3809524,
+        1000000000.0,
+        1050000000.0,
+        1102500000.0,
+        1157625000.0000002,
+        1215506250.0000002
+      ],
+      "net_income_parent": [
+        137232142.85714287,
+        144375000.0,
+        151875000.0,
+        159750000.0,
+        168018750.00000006,
+        176700937.50000006
+      ],
+      "net_income_ex_nonrecurring_parent": [
+        137232142.85714287,
+        144375000.0,
+        151875000.0,
+        159750000.0,
+        168018750.00000006,
+        176700937.50000006
+      ],
+      "FCF": [
+        115604761.90476194,
+        121700000.00000003,
+        128100000.00000003,
+        134820000.00000003,
+        141876000.0000001,
+        149284800.0000001
+      ],
+      "FCFF": [
+        null,
+        142857142.85714287,
+        150000000.0,
+        157500000.0,
+        165375000.0,
+        173643750.00000006
+      ],
+      "cash_flow_operating": [
+        153700000.00000003,
+        161700000.00000003,
+        170100000.00000003,
+        178920000.00000003,
+        188181000.0000001,
+        197905050.0000001
+      ],
+      "EBIT_adjusted": [
+        190476190.47619048,
+        200000000.0,
+        210000000.0,
+        220500000.0,
+        231525000.00000006,
+        243101250.00000006
+      ],
+      "interest_coverage": [
+        25.396825396825395,
+        26.666666666666668,
+        28.0,
+        29.4,
+        30.870000000000008,
+        32.413500000000006
+      ],
+      "net_debt": [
+        -47619047.61904764,
+        -50000000.0,
+        -52500000.0,
+        -55125000.0,
+        -57881249.99999976,
+        -60775312.5
+      ],
+      "trade_receivables": [
+        114285714.28571428,
+        120000000.0,
+        126000000.0,
+        132300000.0,
+        138915000.00000003,
+        145860750.00000003
+      ],
+      "inventory": [
+        85714285.7142857,
+        90000000.0,
+        94500000.0,
+        99225000.0,
+        104186250.00000001,
+        109395562.50000001
+      ],
+      "EPS_adjusted": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  },
+  "valuation": {
+    "bear_value_per_share": 2.6607813823456787,
+    "base_value_per_share": 3.238934943689914,
+    "bull_value_per_share": 3.6539527862249983,
+    "expected_value_per_share": 3.1981510139876264,
+    "conservative_value_per_share": 2.892042806883373,
+    "current_price": 0.7,
+    "margin_of_safety": 0.7579565564057611,
+    "wacc": 0.08,
+    "wacc_raw": 0.07269588235294118,
+    "terminal_growth": 0.02,
+    "terminal_value_weight": 0.7727272727272726,
+    "cost_of_equity": 0.08,
+    "cost_of_debt": 0.05148,
+    "after_tax_cost_of_debt": 0.03861,
+    "levered_beta": 1.0,
+    "risk_free_rate": 0.025,
+    "risk_free_rate_source": "cn_gov_10y_yield_pit_fixture",
+    "risk_free_rate_as_of": "2026-10-15",
+    "normalized_fcff_0": 157500000.0,
+    "base_fcf_growth": 0.050000000000000044,
+    "g_implied": null,
+    "reverse_dcf_status": "BELOW_SEARCH_RANGE",
+    "reverse_dcf_gap": 0.15000000000000005,
+    "normalized_pe": 4.381846635367762,
+    "ev_ebit": 2.8989781746031746,
+    "fcf_yield": 0.19260000000000005,
+    "ev_ebit_discount": 0.7584184854497354,
+    "fcff_path": {
+      "bear": [
+        163553658.97500008,
+        168950506.72500005,
+        168950506.72500005,
+        168950506.72500005,
+        168950506.72500005
+      ],
+      "base": [
+        173643576.35625008,
+        182325755.17406255,
+        191442042.93276557,
+        201014145.07940397,
+        211064852.33337417
+      ],
+      "bull": [
+        177585754.8465,
+        191792615.2342201,
+        207136024.45295772,
+        223706906.40919423,
+        241603458.9219297
+      ]
+    },
+    "assumptions": {
+      "base_revenue_growth": 0.050000000000000044,
+      "bear_revenue_growth": 4.163336342344337e-17,
+      "bull_revenue_growth": 0.08000000000000004,
+      "base_ebit_margin": 0.2,
+      "bear_ebit_margin": 0.18000000000000002,
+      "bull_ebit_margin": 0.21500000000000002,
+      "da_to_revenue": 0.04,
+      "capex_to_revenue": 0.04,
+      "nwc_to_revenue": 0.15,
+      "flags": [],
+      "wacc": {
+        "wacc": 0.08,
+        "wacc_raw": 0.07269588235294118,
+        "cost_of_equity": 0.08,
+        "cost_of_debt": 0.05148,
+        "after_tax_cost_of_debt": 0.03861,
+        "e_weight": 0.8235294117647058,
+        "d_weight": 0.17647058823529413,
+        "levered_beta": 1.0,
+        "risk_free_rate": 0.025,
+        "risk_free_rate_source": "cn_gov_10y_yield_pit_fixture",
+        "risk_free_rate_as_of": "2026-10-15",
+        "equity_risk_premium": 0.055,
+        "terminal_growth": 0.02,
+        "normalized_tax_rate": 0.25,
+        "flags": [
+          "WACC_CLAMPED"
+        ]
+      },
+      "normalized": {
+        "ebit_method": "5y_complete_year_median",
+        "ni_method": "5y_complete_year_median",
+        "fcf_method": "5y_complete_year_median",
+        "fcff_method": "5y_complete_year_median",
+        "y5_EBIT_median": 220500000.0,
+        "ttm_EBIT": 250297047.00000006,
+        "y5_FCF_median": 134820000.00000003,
+        "ttm_FCF": 153703630.0800001
+      },
+      "normalized_method": "5y_complete_year_median_with_ttm_check"
+    },
+    "flags": [
+      "BELOW_SEARCH_RANGE",
+      "REVERSE_DCF_GAP_AT_LEAST_SEARCH_FLOOR",
+      "TERMINAL_VALUE_DOMINANT",
+      "WACC_CLAMPED"
+    ],
+    "confidence": "reduced",
+    "equity_value_basis": "consolidated_fcff_minus_minority_interest",
+    "incomplete": false
+  },
+  "mispricing": {
+    "category": [
+      "TEMPORARY_SHOCK"
+    ],
+    "price_12m_total_return": -0.44448954739192204,
+    "fundamental_price_divergence": 4,
+    "fundamental_decline": -2.7755575615628914e-17,
+    "permanent_impairment_checks": [
+      {
+        "item_id": "IMP-01",
+        "question": "核心产品或服务是否被技术替代？",
+        "answer": "NO",
+        "evidence_summary": "合成夹具中的结构化排查结论",
+        "evidence_refs": [
+          "EV-001"
+        ],
+        "material_to_long_term_earnings": false
+      },
+      {
+        "item_id": "IMP-02",
+        "question": "核心客户是否永久流失或供应商地位下降？",
+        "answer": "NO",
+        "evidence_summary": "合成夹具中的结构化排查结论",
+        "evidence_refs": [
+          "EV-001"
+        ],
+        "material_to_long_term_earnings": false
+      },
+      {
+        "item_id": "IMP-03",
+        "question": "市场份额、渠道或成本优势是否发生结构性恶化？",
+        "answer": "NO",
+        "evidence_summary": "合成夹具中的结构化排查结论",
+        "evidence_refs": [
+          "EV-001"
+        ],
+        "material_to_long_term_earnings": false
+      },
+      {
+        "item_id": "IMP-04",
+        "question": "行业长期需求是否出现不可逆收缩？",
+        "answer": "NO",
+        "evidence_summary": "合成夹具中的结构化排查结论",
+        "evidence_refs": [
+          "EV-001"
+        ],
+        "material_to_long_term_earnings": false
+      },
+      {
+        "item_id": "IMP-05",
+        "question": "ROIC是否连续多年低于资本成本且看不到修复路径？",
+        "answer": "NO",
+        "evidence_summary": "合成夹具中的结构化排查结论",
+        "evidence_refs": [
+          "EV-001"
+        ],
+        "material_to_long_term_earnings": false
+      },
+      {
+        "item_id": "IMP-06",
+        "question": "资产负债表是否需要持续外部融资才能维持经营？",
+        "answer": "NO",
+        "evidence_summary": "合成夹具中的结构化排查结论",
+        "evidence_refs": [
+          "EV-001"
+        ],
+        "material_to_long_term_earnings": false
+      },
+      {
+        "item_id": "IMP-07",
+        "question": "是否存在严重治理、关联交易或资本分配问题？",
+        "answer": "NO",
+        "evidence_summary": "合成夹具中的结构化排查结论",
+        "evidence_refs": [
+          "EV-001"
+        ],
+        "material_to_long_term_earnings": false
+      },
+      {
+        "item_id": "IMP-08",
+        "question": "核心资产是否存在重大减值、抵押、冻结或产权争议？",
+        "answer": "NO",
+        "evidence_summary": "合成夹具中的结构化排查结论",
+        "evidence_refs": [
+          "EV-001"
+        ],
+        "material_to_long_term_earnings": false
+      }
+    ],
+    "evidence_refs": [
+      "EV-GC-001"
+    ],
+    "reversibility_state": "confirmed_temporary",
+    "implied_vs_evidence_state": "strong",
+    "impairment_state": "no_impairment",
+    "research_queue": true
+  },
+  "explainability": {
+    "positive_drivers": [
+      "A_roic_median: 5-year ROIC median is 20.49%",
+      "A_roic_persistence: 5 of 5 years have valid positive ROIC",
+      "A_margin_quality: Margin quality state is stable_or_improving (EBIT-margin slope=0.0)",
+      "A_resilience: Resilience state is overall_growth",
+      "A_reinvestment: Reinvestment state is fcf_positive_roic_stable (5y FCF sum=675780800.0000002)",
+      "B_leverage: Company is in a net-cash position",
+      "B_interest_coverage: Interest coverage is 32.41x",
+      "B_cash_cover: Cash / short-term interest-bearing debt is 5.27x",
+      "B_wc_quality: Working-capital quality state is stable",
+      "B_audit: No material audit or governance exception is recorded",
+      "C_cash_conversion: 5-year CFO / net income is 1.12",
+      "C_fcf_conversion: 5-year FCF / adjusted parent NI is 0.84",
+      "C_nonrecurring: 5-year non-recurring / parent NI is 0.00%",
+      "C_eps_shares: Share/EPS state is eps_up_shares_stable (3y dilution=0.00%)",
+      "D_mos: Margin of safety versus conservative value is 75.80%",
+      "D_fcf_yield: Normalized FCF yield is 19.26%",
+      "D_ev_ebit: EV/EBIT discount versus the reasonable multiple is 75.84%",
+      "D_reverse_dcf: Base FCFF growth minus implied growth is 15.00% (more positive = more pessimistic market path)",
+      "E_divergence: Price/fundamental divergence state is strong (12m return=-44.45%, fundamental decline=-0.00%)",
+      "E_reversibility: Shock reversibility state is confirmed_temporary",
+      "E_implied: Implied-vs-evidence state is strong",
+      "E_impairment: Permanent-impairment screen state is no_impairment"
+    ],
+    "negative_drivers": [],
+    "missing_data": [],
+    "formula_versions": {
+      "EBIT_adjusted": "ebit_adjusted_v1",
+      "NOPAT": "nopat_v1",
+      "invested_capital": "invested_capital_v1",
+      "ROIC": "roic_v1",
+      "ROE": "roe_v1",
+      "EBITDA": "ebitda_v1",
+      "net_debt": "net_debt_v1",
+      "interest_coverage": "interest_coverage_v1",
+      "FCF": "fcf_v1",
+      "cash_conversion_5y": "cash_conversion_5y_v1",
+      "fcf_conversion_5y": "fcf_conversion_5y_v1",
+      "trade_receivables": "trade_receivables_v1",
+      "receivable_days": "receivable_days_v1",
+      "inventory_days": "inventory_days_v1",
+      "operating_nwc": "operating_nwc_v1",
+      "TTM": "ttm_v1",
+      "quarterly_conversion": "quarterly_conversion_v1",
+      "CAGR": "cagr_v1",
+      "FCFF": "fcff_v1",
+      "WACC": "wacc_v1",
+      "DCF": "dcf_three_scenario_v1",
+      "reverse_DCF": "reverse_dcf_univariate_v1",
+      "MOS": "mos_v1",
+      "EV": "enterprise_value_v1"
+    },
+    "source_refs": [
+      "6 annual periods; TTM as of 2026-09-30"
+    ],
+    "data_quality_reasons": [],
+    "feature_flags": [],
+    "valuation_flags": [
+      "BELOW_SEARCH_RANGE",
+      "REVERSE_DCF_GAP_AT_LEAST_SEARCH_FLOOR",
+      "TERMINAL_VALUE_DOMINANT",
+      "WACC_CLAMPED"
+    ],
+    "valuation_assumptions": {
+      "base_revenue_growth": 0.050000000000000044,
+      "bear_revenue_growth": 4.163336342344337e-17,
+      "bull_revenue_growth": 0.08000000000000004,
+      "base_ebit_margin": 0.2,
+      "bear_ebit_margin": 0.18000000000000002,
+      "bull_ebit_margin": 0.21500000000000002,
+      "da_to_revenue": 0.04,
+      "capex_to_revenue": 0.04,
+      "nwc_to_revenue": 0.15,
+      "flags": [],
+      "wacc": {
+        "wacc": 0.08,
+        "wacc_raw": 0.07269588235294118,
+        "cost_of_equity": 0.08,
+        "cost_of_debt": 0.05148,
+        "after_tax_cost_of_debt": 0.03861,
+        "e_weight": 0.8235294117647058,
+        "d_weight": 0.17647058823529413,
+        "levered_beta": 1.0,
+        "risk_free_rate": 0.025,
+        "risk_free_rate_source": "cn_gov_10y_yield_pit_fixture",
+        "risk_free_rate_as_of": "2026-10-15",
+        "equity_risk_premium": 0.055,
+        "terminal_growth": 0.02,
+        "normalized_tax_rate": 0.25,
+        "flags": [
+          "WACC_CLAMPED"
+        ]
+      },
+      "normalized": {
+        "ebit_method": "5y_complete_year_median",
+        "ni_method": "5y_complete_year_median",
+        "fcf_method": "5y_complete_year_median",
+        "fcff_method": "5y_complete_year_median",
+        "y5_EBIT_median": 220500000.0,
+        "ttm_EBIT": 250297047.00000006,
+        "y5_FCF_median": 134820000.00000003,
+        "ttm_FCF": 153703630.0800001
+      },
+      "normalized_method": "5y_complete_year_median_with_ttm_check"
+    },
+    "valuation_confidence": "reduced"
+  },
+  "listing_status": "FULL",
+  "industry": "machinery",
+  "sector": "industrials",
+  "liquidity_ok": true,
+  "daily_turnover_cny": 80000000.0,
+  "candidate_eligible": true,
+  "universe_included": true,
+  "universe_exclusion_reason": null
+}

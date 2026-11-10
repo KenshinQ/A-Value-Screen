@@ -1,0 +1,38 @@
+# Source-field mapping into A-Value-Screen standard fields.
+# Adapters should emit standard names; this file remaps vendor aliases
+# and declares inclusion relationships used to avoid double-counting.
+schema_version: "0.1.0"
+
+aliases:
+  revenue: ["oper_rev", "operating_revenue", "营业收入", "total_operating_revenue"]
+  cost_of_revenue: ["oper_cost", "operating_cost", "营业成本"]
+  selling_expense: ["sales_expense", "销售费用"]
+  admin_expense: ["administrative_expense", "管理费用"]
+  rd_expense: ["research_expense", "研发费用"]
+  finance_expense: ["financial_expense", "财务费用"]
+  interest_expense_gross: ["interest_expense", "interest_exp", "利息费用", "利息支出"]
+  interest_income: ["int_income", "利息收入"]
+  operating_profit: ["op_profit", "营业利润"]
+  profit_before_tax: ["pretax_profit", "利润总额"]
+  income_tax_expense: ["tax", "所得税费用"]
+  net_income: ["n_income", "净利润"]
+  net_income_parent: ["n_income_attr_p", "归母净利润"]
+  net_income_ex_nonrecurring_parent: ["n_income_attr_p_cut", "扣非归母净利润"]
+  nonrecurring_profit_parent: ["nonrecurring_pnl_parent", "归母非经常性损益"]
+  depreciation_amortization: ["da", "depr_amort", "折旧摊销"]
+  cash_and_equivalents: ["monetary_cap", "cash", "货币资金"]
+  restricted_cash: ["restricted_monetary_cap", "受限货币资金"]
+  cash_flow_operating: ["cfo", "net_cash_flows_oper_act", "经营活动现金流量净额"]
+  cash_paid_for_capex_ppe: ["capex", "cash_pay_acq_const_fiolta", "购建固定资产无形资产和其他长期资产支付的现金"]
+  total_shares: ["total_share", "总股本"]
+  equity_parent: ["total_equity_attr_p", "归母股东权益"]
+  EBIT_adjusted: ["ebit_adj", "ebit_adjusted"]
+
+# If a source already folds a component into another field, list it here
+# so trade_receivables / debt aggregations do not double count.
+already_included_in:
+  trade_receivables: []
+  interest_bearing_debt: []
+
+notes_payable_default_interest_bearing: false
+trading_assets_default_eligible_non_operating: false

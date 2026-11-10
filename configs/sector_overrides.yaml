@@ -1,0 +1,30 @@
+# Optional sector-specific overrides. Empty entries inherit default.yaml.
+# v0.1: financials are excluded rather than given a bank/insurance model.
+schema_version: "0.1.0"
+
+cyclical_sectors:
+  - steel
+  - 钢铁
+  - nonferrous
+  - 有色金属
+  - coal
+  - 煤炭
+  - chemical
+  - 化工
+  - shipping
+  - 航运
+  - cement
+  - 水泥
+  - paper
+  - 造纸
+  - commodity
+  - 周期
+
+sector_overrides: {}
+# Example (disabled):
+# sector_overrides:
+#   steel:
+#     valuation:
+#       use_midcycle_earnings: true
+#     qualitative:
+#       margin_volatility_stable: 0.08

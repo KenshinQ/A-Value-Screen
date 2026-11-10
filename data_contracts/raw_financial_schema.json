@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RawFinancialRecord",
+  "type": "object",
+  "required": [
+    "security_id",
+    "symbol",
+    "report_period",
+    "value"
+  ],
+  "properties": {
+    "security_id": {
+      "type": "string"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "exchange": {
+      "type": "string"
+    },
+    "report_period": {
+      "type": "string",
+      "format": "date"
+    },
+    "announcement_datetime": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "available_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "statement_type": {
+      "type": "string",
+      "enum": [
+        "ANNUAL",
+        "Q1",
+        "H1",
+        "Q2",
+        "Q3",
+        "Q4",
+        "FY"
+      ]
+    },
+    "version_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "version_chain": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "is_restatement": {
+      "type": "boolean"
+    },
+    "source": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_field": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "currency": {
+      "type": "string"
+    },
+    "unit": {
+      "type": "string"
+    },
+    "field": {
+      "type": "string"
+    },
+    "value": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "statement_block": {
+      "type": "string",
+      "enum": [
+        "income",
+        "balance",
+        "cashflow",
+        "market",
+        "other"
+      ]
+    }
+  }
+}
